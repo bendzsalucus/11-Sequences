@@ -4,8 +4,8 @@ in its most classic form:
   -- Iterate all the way through the sequence, from beginning to end.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Lucus Bendzsa.
+"""  # DOne: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -81,6 +81,20 @@ def run_test_count_negatives():
     print('Test 5 expected:', expected)
     print('       actual:  ', actual)
 
+    # Test 6:
+    expected = 7
+    actual = count_negatives((-8, -13, -7, -5, 1, -2, -3, -6))
+    print()
+    print('Test 5 expected:', expected)
+    print('       actual:  ', actual)
+
+    # Test 7:
+    expected = 2
+    actual = count_negatives((8, 13, 7, -5, -9))
+    print()
+    print('Test 5 expected:', expected)
+    print('       actual:  ', actual)
+
     # TO DO 2 (continued):  Add your 2 ADDITIONAL tests here:
 
 
@@ -100,9 +114,15 @@ def count_negatives(seq):
       :type seq: (list | tuple) of (int | float)
     """
     # ------------------------------------------------------------------
-    # TODO: 3. Implement and test this function.
+    # Done: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
+    total = 0
+    for k in range(len(seq)):
+        if seq[k] < 0:
+            a = 1
+            total = total + a
+    return total
 
 
 def run_test_count_short_ones():
@@ -181,8 +201,21 @@ def run_test_count_short_ones():
     print('Test 7 expected:', expected)
     print('       actual:  ', actual)
 
-    # TO DO 4 (continued):  Add your 2 ADDITIONAL test(s) here:
+    # Test 3:
+    expected = 7
+    seq = ['abc', 'a', '', 'foo', 'de', 'dd', 'x', 'fo', 'arh', 'a']
+    actual = count_short_ones(seq)
+    print()
+    print('Test 3 expected:', expected)
+    print('       actual:  ', actual)
 
+    # Test 3:
+    expected = 6
+    seq = ['abcd', 'a', '', 'food', 'de', 'dd', 'x', 'foo', 'argh', 'a']
+    actual = count_short_ones(seq)
+    print()
+    print('Test 3 expected:', expected)
+    print('       actual:  ', actual)
 
 def count_short_ones(seq_of_lists):
     """
@@ -205,10 +238,14 @@ def count_short_ones(seq_of_lists):
       :type seq_of_lists: (list | tuple) of (list | tuple | str)
     """
     # ------------------------------------------------------------------
-    # TODO: 5. Implement and test this function.
+    # DOne: 5. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
-
+    total = 0
+    for k in range(len(seq_of_lists)):
+        if len(seq_of_lists[k]) < 3:
+            total = total + 1
+    return total
 
 def run_test_draw_circles():
     """ Tests the   draw_circles   function. """
@@ -285,10 +322,22 @@ def draw_circles(window, points, radius, color):
       :type radius: int | float
       :type color: str
     """
+    for k in range(len(points)):
+        circle = rg.Circle(points[k], radius)
+        circle.fill_color = color
+        circle.attach_to(window)
+    window.render()
+
+
+
+
+
+
     # ------------------------------------------------------------------
-    # TODO: 6. Implement and test this function.
+    # DOne: 6. Implement and test this function.
     #          Tests have been written for you (above).
     # ------------------------------------------------------------------
+
 
 
 # ----------------------------------------------------------------------
